@@ -77,7 +77,7 @@ app.use(notFound);
 app.use(errorHandler);
 
 // MongoDB Connection and Server Initialization
-connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+connect(process.env.MONGO_URI)
   .then(() => {
     const port = process.env.PORT || 1000;
     app.listen(port, () => console.log(`Server running on port ${port}`));
@@ -86,4 +86,3 @@ connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true
     console.error('MongoDB connection error:', error);
     process.exit(1); // Exit process with failure
   });
-
